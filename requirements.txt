@@ -2,3 +2,4 @@ streamlit>=1.36.0
 SQLAlchemy>=2.0.30
 pandas>=2.2.0
 pyttsx3
+SpeechRecognition
