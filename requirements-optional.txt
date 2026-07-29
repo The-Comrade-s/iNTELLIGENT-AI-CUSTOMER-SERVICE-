@@ -1,0 +1,12 @@
+# Optional dependencies -- the app runs fully without these; the
+# related feature (voice, OCR, PDF/DOCX/XLSX parsing) simply reports
+# itself as unavailable in the UI until installed. Install with:
+#   pip install -r requirements-optional.txt
+
+SpeechRecognition>=3.10.0     # voice input (speech-to-text)
+pyttsx3>=2.90                 # voice output (text-to-speech, offline)
+pytesseract>=0.3.10           # OCR (also requires the Tesseract binary on the host)
+Pillow>=10.0.0                # image handling for OCR
+pypdf>=4.0.0                  # PDF text extraction
+python-docx>=1.1.0            # DOCX text extraction
+openpyxl>=3.1.0               # XLSX text extraction

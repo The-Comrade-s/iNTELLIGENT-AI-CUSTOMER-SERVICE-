@@ -1,0 +1,32 @@
+version: "3.9"
+
+services:
+  ics-platform:
+    build: .
+    ports:
+      - "8501:8501"
+    environment:
+      ICS_ENV: production
+      ICS_DEBUG: "false"
+      ICS_DATABASE_URL: ${ICS_DATABASE_URL:-sqlite:///./ics_platform.db}
+      ICS_SECRET_KEY: ${ICS_SECRET_KEY:?set a strong secret key in .env}
+      ICS_SESSION_TIMEOUT_MIN: "60"
+    volumes:
+      - ics_data:/app/logs
+      - ics_db:/app/data
+    restart: unless-stopped
+
+  # Uncomment to run against PostgreSQL instead of SQLite in production.
+  # db:
+  #   image: postgres:16-alpine
+  #   environment:
+  #     POSTGRES_DB: ics_platform
+  #     POSTGRES_USER: ics_user
+  #     POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?set a password in .env}
+  #   volumes:
+  #     - pg_data:/var/lib/postgresql/data
+
+volumes:
+  ics_data:
+  ics_db:
+  # pg_data:

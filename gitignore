@@ -1,0 +1,15 @@
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+*.db
+*.db-journal
+.env
+logs/*.log
+exports/*
+!exports/.gitkeep
+.venv/
+venv/
+.DS_Store
+*.egg-info/
+.streamlit/secrets.toml
